@@ -2,14 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <div id="output"></div>
-    <!-- Load Babel -->
-    <!-- v6 <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Your custom script here -->
+    <title>ToDoList</title>
 </head>
 <body>
-
+<div class="container">
+<div class="new_task">
+    <form>
+        <input type="text" minlength="3" maxlength="20">
+        <textarea cols="20" rows="6" maxlength="120"></textarea>
+        <input type="color">
+        <select>
+            <option value="1">Very Important</option>
+            <option value ="2">Important</option>
+            <option value ="3">For later</option>
+        </select>
+        <button type="submit">Add new Task</button>
+    </form>
+</div>
+    <div class="task_list">
+        <h2>Important</h2>
+        <ul class="important">
+        </ul>
+        <h2>normal</h2>
+        <ul class="normal">
+        </ul>
+        <h2>LessImportant</h2>
+        <ul class="less">
+        </ul>
+    </div>
+</div>
+<script src="src/main.js"></script>
 </body>
 </html>
