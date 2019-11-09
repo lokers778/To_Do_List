@@ -1,0 +1,45 @@
+.task_list {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+
+div{
+  width: 100%;
+  min-height: 5%;
+  margin: 4% 0;
+}
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    li {
+      display: block;
+      margin:2%;
+      background-color: red;
+      height: 15vw;
+      width: 15vw;
+      overflow: hidden;
+      padding: 1%;
+    }
+    h3{
+      color:white;
+      margin:1% 0;
+    }
+    p{
+      color:green;
+      margin:3% 0;
+      font-style: italic;
+    }
+  }
+}
+ .container .fullWidth{
+ width: 100%;
+}

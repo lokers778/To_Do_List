@@ -1,0 +1,26 @@
+.new_task {
+  width: 40%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  form {
+    height: 60%;
+    width: 70%;
+    padding: 5%;
+    border:1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  input[type="text"]{
+    height: 10%;
+    width: 80%;
+  }
+}
+.container .hiddenList{
+  display: none;
+}

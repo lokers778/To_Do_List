@@ -3,32 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <title>ToDoList</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="keywords" content="ToDoApp, frontEnd, JavaScript, tasks, task"/>
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-<div class="new_task">
-    <form>
-        <input type="text" minlength="3" maxlength="20">
-        <textarea cols="20" rows="6" maxlength="120"></textarea>
-        <input type="color">
-        <select>
-            <option value="1">Very Important</option>
-            <option value ="2">Important</option>
-            <option value ="3">For later</option>
-        </select>
-        <button type="submit">Add new Task</button>
-    </form>
-</div>
+    <button class="showBtn">show</button>
+    <div class="new_task">
+        <form>
+            <input type="text" minlength="3" maxlength="20">
+            <textarea cols="20" rows="6" maxlength="120"></textarea>
+            <select>
+                <option value="1">Very Important</option>
+                <option value="2">Important</option>
+                <option value="3">For later</option>
+            </select>
+            <button type="submit">Add new List</button>
+        </form>
+    </div>
     <div class="task_list">
-        <h2>Important</h2>
-        <ul class="important">
-        </ul>
-        <h2>normal</h2>
-        <ul class="normal">
-        </ul>
-        <h2>LessImportant</h2>
-        <ul class="less">
-        </ul>
+        <div>
+            <h2>Important</h2>
+            <ul class="important">
+                <li>
+                    safsafsafsaf
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>normal</h2>
+            <ul class="normal">
+                <li>
+                    <h3>sadasfsafsaf</h3>
+                    <p>safasfsaf</p>
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2>LessImportant</h2>
+            <ul class="less">
+                <li>
+                    safsafsafsaf
+                </li>
+                <li>
+                    safsafsafsaf
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 <script src="src/main.js"></script>
