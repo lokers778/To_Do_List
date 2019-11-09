@@ -1,0 +1,36 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "My to do list es6, sass, gulp babel",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "scripts": {
+    "build": "babel --presets es2015 src -d dist"
+  },
+  "author": "lukasz podeszwa",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-watch": "^5.0.1",
+    "sass": "^1.21.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.6.0",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^4.1.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^8.0.0",
+    "webpack": "^4.33.0"
+  }
+}
