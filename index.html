@@ -12,8 +12,8 @@
     <button class="showBtn">show</button>
     <div class="new_task">
         <form>
-            <input type="text" minlength="3" maxlength="20">
-            <textarea cols="20" rows="6" maxlength="120"></textarea>
+            <input type="text" minlength="4" maxlength="50" required>
+            <textarea cols="20" rows="6" maxlength="120" ></textarea>
             <select>
                 <option value="1">Very Important</option>
                 <option value="2">Important</option>
@@ -26,59 +26,31 @@
         <div>
             <h2>Important</h2>
             <ul class="important">
-                <li>
-                    safsafsafsaf
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
+
             </ul>
         </div>
         <div>
             <h2>normal</h2>
             <ul class="normal">
-                <li>
-                    <h3>sadasfsafsaf</h3>
-                    <p>safasfsaf</p>
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
+
             </ul>
         </div>
         <div>
             <h2>LessImportant</h2>
             <ul class="less">
-                <li>
-                    safsafsafsaf
-                </li>
-                <li>
-                    safsafsafsaf
-                </li>
+
             </ul>
         </div>
     </div>
     <div class="task_list_to_do">
-        <input type="text">
+        <h3></h3>
+        <input type="text" minlength="4" maxlength="50" required>
         <input type="submit">
         <h3 class="listName"></h3>
         <ul class="listTasks"></ul>
         <div class="listFilters">
-            <button>All</button>
-            <button>Active</button>
-            <button>Done</button>
+            <button class="save">Save</button>
+            <button class="close">Close</button>
         </div>
     </div>
 </div>

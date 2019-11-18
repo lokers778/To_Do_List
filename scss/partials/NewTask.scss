@@ -40,10 +40,10 @@
   top: 25%;
   left: 25%;
   background-color: grey;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  display: none;
   >input{
     width: 80%;
   }
