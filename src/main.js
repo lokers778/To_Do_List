@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
         taskAddBtn: document.querySelector(".task_list_to_do input[type='submit']"),
         listTask: document.querySelector(".task_list_to_do ul"),
         saveBtn: document.querySelector(".task_list_to_do .save"),
-        closeBtn: document.querySelector(".task_list_to_do .close"),
         lastKnowTasks: [],
     };
 
@@ -88,17 +87,21 @@ document.addEventListener("DOMContentLoaded", function () {
         form.parentElement.classList.add("hiddenList");
         const taskList = document.querySelector("div.task_list");
         taskList.classList.add("fullWidth");
-        document.querySelectorAll(" div.task_list.fullWidth > div:nth-child(1) li").forEach((task, index) => {
-
-            task.children[3].addEventListener("click", function (e) {
+        let task= document.querySelector(" div.task_list.fullWidth > div:nth-child(1) ul > li:nth-last-child(1)")
+        let editbtn= task.querySelector("button.edit")
+        console.log(task)
+        console.log(editbtn)
+        if(editbtn!==null){
+            editbtn.addEventListener("click", function (e) {
                 e.stopImmediatePropagation();
                 e.stopPropagation();
-                const taskElementsList = task.querySelectorAll("li");
                 ThisTaskListFormInput.newTaskList.firstElementChild.innerText = task.firstElementChild.innerText;
-                addTask(taskElementsList, task)
+                addTask(e, task)
                 ThisTaskListFormInput.newTaskList.style.display = "flex";
             })
-        })
+            console.log(task)
+            console.log(editbtn)
+        }
     });
 
     document.querySelector(".showBtn").addEventListener("click", () => {
@@ -107,18 +110,20 @@ document.addEventListener("DOMContentLoaded", function () {
         taskList.classList.toggle("fullWidth")
     });
 
-    function addTask(arg = [], taskElements) {
-        console.log(arg);
-        const {newTaskList, listTask, taskAddBtn, lastKnowTasks, taskListName, saveBtn, closeBtn} = ThisTaskListFormInput;
-        let currentTasksFromList = Array.from(arg);
-        let fullList = currentTasksFromList.map((task) => {
-            return `<li>${task.innerText}<button class="removeTask">X</button></li>`
-        }).reduce((prev, next) => {
-            return prev + next
-        }, []);
-        if (typeof fullList === "string") {
-            listTask.innerHTML = fullList;
-        };
+    function addTask(e) {
+        let taskList=e.target.parentElement;
+        let taskElementsList = taskList.querySelectorAll("ul li");
+        const {newTaskList, listTask, taskAddBtn, taskListName, saveBtn} = ThisTaskListFormInput;
+        arg=e.target.querySelectorAll("li");
+        let currentTasksFromList = Array.from(taskElementsList);
+        if(currentTasksFromList.length>0){
+        currentTasksFromList.forEach((el)=>{
+            listTask.appendChild(el)
+            console.log(listTask)
+        })
+    }
+
+
         let newTaskToList = () => {
             const task = document.createElement("li");
             task.innerHTML = `${taskListName.value}  <button class="removeTask">X</button>`;
@@ -127,23 +132,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
         let saveTaskList = (e) => {
-            newTaskList.style.display = "none";
-            console.log(taskElements.children)
-            taskElements.children[4].innerHTML = listTask.innerHTML;
-            listTask.innerHTML = "";
-            taskAddBtn.removeEventListener("click", saveTaskList)
-            taskAddBtn.removeEventListener("click", newTaskToList)
-        }
-        let closeTask = (e) => {
             taskListName.value = "";
-            listTask.innerHTML = "";
             newTaskList.style.display = "none";
-            taskAddBtn.removeEventListener("click", closeTask)
-            taskAddBtn.removeEventListener("click", newTaskToList)
+           let ulList= taskList.querySelector("ul");
+           let tasksFromList= listTask.querySelectorAll("li")
+           tasksFromList.forEach((task)=>{
+            ulList.appendChild(task)
+           })
+           taskAddBtn.removeEventListener("click", saveTaskList)
+           taskAddBtn.removeEventListener("click", newTaskToList)
+           return
         }
         taskAddBtn.addEventListener("click", newTaskToList);
-        saveBtn.addEventListener("click", saveTaskList);
-        closeBtn.addEventListener("click", closeTask)
+        saveBtn.addEventListener("click", saveTaskList,{once:true});
+        return
     }
 
 });
