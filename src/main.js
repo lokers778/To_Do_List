@@ -89,8 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         taskList.classList.add("fullWidth");
         let task= document.querySelector(" div.task_list.fullWidth > div:nth-child(1) ul > li:nth-last-child(1)")
         let editbtn= task.querySelector("button.edit")
-        console.log(task)
-        console.log(editbtn)
+        
         if(editbtn!==null){
             editbtn.addEventListener("click", function (e) {
                 e.stopImmediatePropagation();
@@ -99,8 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 addTask(e, task)
                 ThisTaskListFormInput.newTaskList.style.display = "flex";
             })
-            console.log(task)
-            console.log(editbtn)
+          
         }
     });
 
@@ -119,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if(currentTasksFromList.length>0){
         currentTasksFromList.forEach((el)=>{
             listTask.appendChild(el)
-            console.log(listTask)
         })
     }
 
@@ -127,6 +124,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let newTaskToList = () => {
             const task = document.createElement("li");
             task.innerHTML = `${taskListName.value}  <button class="removeTask">X</button>`;
+            task.querySelectorAll(".removeTask").forEach((e)=>{
+                e.addEventListener("click",(e)=>{
+                    e.target.parentElement.parentElement.removeChild(e.target.parentElement)
+                })
+            })
             taskListName.value = "";
             listTask.appendChild(task);
 
