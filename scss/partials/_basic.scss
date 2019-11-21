@@ -4,13 +4,29 @@
   box-sizing: border-box;
 }
 .container{
+  background-color: $background-color;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   min-height: 100vh;
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: $standard-font-size;
+  @media screen and (max-width: 1000px) {
+flex-direction: column;
+min-height: 100vh;
+align-items: flex-start;
+  }
   .showBtn{
     position: fixed;
     top:0;
     left:0;
+    background-color: $show-btn-color;
+    width:5vw;
+    height: 3vh;
+    font-size: $standard-font-size;
+    @media screen and (max-width: 1000px) {
+      height: 5%;
+      width: 100%;
+        }
   }
 }

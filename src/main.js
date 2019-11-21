@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     newTaskListFormInputs.newTaskButton.addEventListener("click", (e) => {
         const {title, importantRange, description, form} = newTaskListFormInputs;
         if (title.value.length <= 3 || description.value <= 3) {
-            alert("Title must contains more than 3 letters");
+            alert("Title/description must contains more than 3 letters");
             return;
         }
         e.preventDefault();
@@ -87,10 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
         form.parentElement.classList.add("hiddenList");
         const taskList = document.querySelector("div.task_list");
         taskList.classList.add("fullWidth");
-        let task= document.querySelector(" div.task_list.fullWidth > div:nth-child(1) ul > li:nth-last-child(1)")
+        let task= document.querySelector(" div.task_list > div:nth-child(1)> ul > li:nth-last-child(1)")
         let editbtn= task.querySelector("button.edit")
-        
-        if(editbtn!==null){
             editbtn.addEventListener("click", function (e) {
                 e.stopImmediatePropagation();
                 e.stopPropagation();
@@ -99,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 ThisTaskListFormInput.newTaskList.style.display = "flex";
             })
           
-        }
     });
 
     document.querySelector(".showBtn").addEventListener("click", () => {
