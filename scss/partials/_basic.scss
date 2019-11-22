@@ -1,9 +1,10 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.container{
+
+.container {
   background-color: $background-color;
   display: flex;
   justify-content: flex-end;
@@ -11,22 +12,28 @@
   min-height: 100vh;
   font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
   font-size: $standard-font-size;
+
   @media screen and (max-width: 1000px) {
-flex-direction: column;
-min-height: 100vh;
-align-items: flex-start;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: center;
   }
-  .showBtn{
+
+  .showBtn {
+    z-index: 2;
+    border: 2px solid darkgray;
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     background-color: $show-btn-color;
-    width:5vw;
-    height: 3vh;
+    width: 10vw;
+    height: 5vh;
     font-size: $standard-font-size;
+
     @media screen and (max-width: 1000px) {
       height: 5%;
       width: 100%;
-        }
+    }
   }
 }

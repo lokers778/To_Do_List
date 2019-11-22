@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>ToDoList</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="keywords" content="ToDoApp, frontEnd, JavaScript, tasks, task"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="keywords" content="ToDoApp, frontEnd, JavaScript, tasks, task" />
     <link href="css/main.css" rel="stylesheet">
 </head>
+
 <body>
-<div class="container">
-    <button class="showBtn">show</button>
-    <div class="new_task">
-        <form>
+    <div class="container">
+        <button class="showBtn">Hide</button>
+        <div class="new_task">
+            <form>
+                <input type="text" minlength="4" maxlength="50" required placeholder="Title Of Task List">
+                <textarea cols="20" rows="6" maxlength="120" placeholder="Description Of Task List"></textarea>
+                <select>
+                    <option value="1">Very Important</option>
+                    <option value="2">Important</option>
+                    <option value="3">For later</option>
+                </select>
+                <button type="submit">Add new List</button>
+            </form>
+        </div>
+        <div class="task_list">
+            <div>
+                <h2>Important</h2>
+                <ul class="important">
+
+                </ul>
+            </div>
+            <div>
+                <h2>normal</h2>
+                <ul class="normal">
+
+                </ul>
+            </div>
+            <div>
+                <h2>LessImportant</h2>
+                <ul class="less">
+
+                </ul>
+            </div>
+        </div>
+        <div class="task_list_to_do">
+            <h3></h3>
             <input type="text" minlength="4" maxlength="50" required>
-            <textarea cols="20" rows="6" maxlength="120" ></textarea>
-            <select>
-                <option value="1">Very Important</option>
-                <option value="2">Important</option>
-                <option value="3">For later</option>
-            </select>
-            <button type="submit">Add new List</button>
-        </form>
-    </div>
-    <div class="task_list">
-        <div>
-            <h2>Important</h2>
-            <ul class="important">
-
-            </ul>
-        </div>
-        <div>
-            <h2>normal</h2>
-            <ul class="normal">
-
-            </ul>
-        </div>
-        <div>
-            <h2>LessImportant</h2>
-            <ul class="less">
-
-            </ul>
+            <input type="submit" value="Add new task to list">
+            <h3 class="listName"></h3>
+            <ul class="listTasks"></ul>
+            <div class="listFilters">
+                <button class="save">Save</button>
+            </div>
         </div>
     </div>
-    <div class="task_list_to_do">
-        <h3></h3>
-        <input type="text" minlength="4" maxlength="50" required>
-        <input type="submit">
-        <h3 class="listName"></h3>
-        <ul class="listTasks"></ul>
-        <div class="listFilters">
-            <button class="save">Save</button>
-        </div>
-    </div>
-</div>
-<script src="src/main.js"></script>
+    <script src="src/main.js"></script>
 </body>
+
 </html>

@@ -51,7 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     newTaskListFormInputs.newTaskButton.addEventListener("click", (e) => {
-        const {title, importantRange, description, form} = newTaskListFormInputs;
+        const {
+            title,
+            importantRange,
+            description,
+            form
+        } = newTaskListFormInputs;
         if (title.value.length <= 3 || description.value <= 3) {
             alert("Title/description must contains more than 3 letters");
             return;
@@ -87,42 +92,60 @@ document.addEventListener("DOMContentLoaded", function () {
         form.parentElement.classList.add("hiddenList");
         const taskList = document.querySelector("div.task_list");
         taskList.classList.add("fullWidth");
-        let task= document.querySelector(" div.task_list > div:nth-child(1)> ul > li:nth-last-child(1)")
-        let editbtn= task.querySelector("button.edit")
-            editbtn.addEventListener("click", function (e) {
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-                ThisTaskListFormInput.newTaskList.firstElementChild.innerText = task.firstElementChild.innerText;
-                addTask(e, task)
-                ThisTaskListFormInput.newTaskList.style.display = "flex";
-            })
-          
+        let task = document.querySelectorAll(" div.task_list > div> ul > li:nth-last-child(1)")
+       task.forEach((task)=>{
+        let editbtn = task.querySelector("button.edit")
+        editbtn.addEventListener("click", function (e) {
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+            ThisTaskListFormInput.newTaskList.firstElementChild.innerText = task.firstElementChild.innerText;
+            addTask(e, task)
+            ThisTaskListFormInput.newTaskList.style.display = "flex";
+        })
+       })
     });
 
-    document.querySelector(".showBtn").addEventListener("click", () => {
+    document.querySelector(".showBtn").addEventListener("click", (e) => {
+        if (e.target.innerText == "Hide") {
+            console.log(e.currentTarget.innerText)
+            e.target.textContent = "Show"
+            console.log(e.currentTarget.innerText)
+        } else {
+            e.target.textContent = "Hide"
+        }
         newTaskListFormInputs.form.parentElement.classList.toggle("hiddenList");
         const taskList = document.querySelector("div.task_list")
         taskList.classList.toggle("fullWidth")
     });
 
     function addTask(e) {
-        let taskList=e.target.parentElement;
+        let taskList = e.target.parentElement;
         let taskElementsList = taskList.querySelectorAll("ul li");
-        const {newTaskList, listTask, taskAddBtn, taskListName, saveBtn} = ThisTaskListFormInput;
-        arg=e.target.querySelectorAll("li");
+        const {
+            newTaskList,
+            listTask,
+            taskAddBtn,
+            taskListName,
+            saveBtn
+        } = ThisTaskListFormInput;
+        arg = e.target.querySelectorAll("li");
         let currentTasksFromList = Array.from(taskElementsList);
-        if(currentTasksFromList.length>0){
-        currentTasksFromList.forEach((el)=>{
-            listTask.appendChild(el)
-        })
-    }
+        if (currentTasksFromList.length > 0) {
+            currentTasksFromList.forEach((el) => {
+                listTask.appendChild(el)
+            })
+        }
 
 
         let newTaskToList = () => {
+            if(taskListName.value.length<=3){
+                alert("task name must be longer than 3 charts")
+                return
+            }
             const task = document.createElement("li");
             task.innerHTML = `${taskListName.value}  <button class="removeTask">X</button>`;
-            task.querySelectorAll(".removeTask").forEach((e)=>{
-                e.addEventListener("click",(e)=>{
+            task.querySelectorAll(".removeTask").forEach((e) => {
+                e.addEventListener("click", (e) => {
                     e.target.parentElement.parentElement.removeChild(e.target.parentElement)
                 })
             })
@@ -133,17 +156,19 @@ document.addEventListener("DOMContentLoaded", function () {
         let saveTaskList = (e) => {
             taskListName.value = "";
             newTaskList.style.display = "none";
-           let ulList= taskList.querySelector("ul");
-           let tasksFromList= listTask.querySelectorAll("li")
-           tasksFromList.forEach((task)=>{
-            ulList.appendChild(task)
-           })
-           taskAddBtn.removeEventListener("click", saveTaskList)
-           taskAddBtn.removeEventListener("click", newTaskToList)
-           return
+            let ulList = taskList.querySelector("ul");
+            let tasksFromList = listTask.querySelectorAll("li")
+            tasksFromList.forEach((task) => {
+                ulList.appendChild(task)
+            })
+            taskAddBtn.removeEventListener("click", saveTaskList)
+            taskAddBtn.removeEventListener("click", newTaskToList)
+            return
         }
         taskAddBtn.addEventListener("click", newTaskToList);
-        saveBtn.addEventListener("click", saveTaskList,{once:true});
+        saveBtn.addEventListener("click", saveTaskList, {
+            once: true
+        });
         return
     }
 
