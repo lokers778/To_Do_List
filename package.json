@@ -31,6 +31,6 @@
     "gulp-imagemin": "^6.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-postcss": "^8.0.0",
-    "webpack": "^4.33.0"
+    "webpack": "^5.94.0"
   }
 }
